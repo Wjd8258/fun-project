@@ -27,7 +27,7 @@ public class AppBasics {
 	/**
 	 * Helper method which farewells the user at the end of an application to
 	 * say thank you and wish them well
-	 * 
+	 *
 	 * @param name
 	 *            Name of the user
 	 * @param appName
@@ -40,7 +40,7 @@ public class AppBasics {
 	/**
 	 * Helper method which greets the user and welcomes them to the Application.
 	 * This method then takes their name and returns it to the calling method.
-	 * 
+	 *
 	 * @param appName
 	 * @return name
 	 */
@@ -48,5 +48,32 @@ public class AppBasics {
 		System.out.println("Welcome to my " + appName + " Application");
 		System.out.print("Could I get your name please?");
 		return scanner.nextLine();
+	}
+
+	/**
+	 * @param string
+	 * @return
+	 */
+	public static int requestInt(String question) {
+		int resultNum = 0;
+		String input = "";
+		boolean valid = false;
+		while (!valid) {
+			try {
+				// ask question
+				System.out.print(question + " ");
+				// get input string from user
+				input = scanner.nextLine();
+				// parse input string into int type
+				resultNum = Integer.parseInt(input);
+				// evaluate valid entry
+				valid = true;
+				// evaluate valid range
+			} catch (NumberFormatException e) {
+				// TODO Auto-generated catch block
+				System.out.println("You have not entered a valid formatted number[" + input + "]");
+			}
+		}
+		return resultNum;
 	}
 }

@@ -24,13 +24,7 @@ import com.sqa.daisy.helpers.*;
  */
 public class FlowControlApp {
 
-	/**
-	 */
 	private static String appName = "Flow Control App";
-
-	private static Scanner sc;
-
-	private static Scanner input;
 
 	/**
 	 * @param args
@@ -52,9 +46,9 @@ public class FlowControlApp {
 	private static void determineMonthBasedOnInt() {
 		String month;
 		int num;
-		sc = new Scanner(System.in);
+		Scanner scanner = new Scanner(System.in);
 		System.out.println("Please supply a number representing month in a year!");
-		month = sc.nextLine();
+		month = scanner.nextLine();
 		num = Integer.parseInt(month);
 		switch (num) {
 		case 1:
@@ -93,6 +87,8 @@ public class FlowControlApp {
 		case 12:
 			System.out.println("December");
 			break;
+		default:
+			System.out.println("Please provide a number between 1 and 12:");
 		}
 	}
 
@@ -101,17 +97,17 @@ public class FlowControlApp {
 	 * associated grade letter.
 	 */
 	private static void evalGrade() {
-		int grade;
-		input = new Scanner(System.in);
+		Scanner scanner = new Scanner(System.in);
 		System.out.println("Enter an integer grade value from 0 to 100!");
-		grade = input.nextInt();
+		String input = scanner.nextLine();
+		int grade = Integer.parseInt(input);
 		if (grade >= 90) {
 			System.out.println("Your grade  is A ");
-		} else if (grade < 90 && grade >= 80) {
+		} else if (grade >= 80) {
 			System.out.println("Your grade  is B ");
-		} else if (grade < 80 && grade >= 70) {
+		} else if (grade >= 70) {
 			System.out.println("Your grade  is C ");
-		} else if (grade < 70 && grade >= 60) {
+		} else if (grade >= 60) {
 			System.out.println("Your grade  is D ");
 		} else {
 			System.out.println("Your grade  is F");
@@ -124,9 +120,10 @@ public class FlowControlApp {
 	 * is smaller than 10¡± (Can you support if parameter is equal to 10)
 	 */
 	private static void evalNumberAgainst10() {
-		sc = new Scanner(System.in);
+		Scanner scanner = new Scanner(System.in);
 		System.out.println("Please enter an integer:");
-		int num = sc.nextInt();
+		String input = scanner.nextLine();
+		int num = Integer.parseInt(input);
 		if (num > 10) {
 			System.out.println("number is greater than 10");
 		} else if (num < 10) {
